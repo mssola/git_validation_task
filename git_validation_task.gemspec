@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.version       = GitValidation::VERSION
   spec.authors       = ["mssola"]
   spec.email         = ["mikisabate@gmail.com"]
-  spec.description   = "A task for the git-validation tool"
-  spec.summary       = "Ruby integration for the git-validation tool."
+  spec.description   = "A rake task for the git-validation tool"
+  spec.summary       = "Rake integration for the git-validation tool."
   spec.homepage      = "https://github.com/mssola/git_validation_task"
   spec.license       = "LGPL-3.0"
 
