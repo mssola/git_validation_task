@@ -34,6 +34,10 @@ class TestGitValidationTask < Minitest::Test
     str
   end
 
+  def setup
+    ENV["TRAVIS_COMMIT_RANGE"] = nil
+  end
+
   def test_range_flag_on_travis
     task = ::GitValidation::Task.new
 
