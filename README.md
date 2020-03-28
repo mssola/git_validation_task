@@ -1,6 +1,7 @@
 # git_validation_task [![Build Status](https://travis-ci.org/mssola/git_validation_task.svg?branch=master)](https://travis-ci.org/mssola/git_validation_task) [![Gem Version](https://badge.fury.io/rb/git_validation_task.svg)](https://badge.fury.io/rb/git_validation_task)
 
-`git_validation_task` TODO
+`git_validation_task` provides rake integration for the
+[git-validation](https://github.com/vbatts/git-validation) tool.
 
 ## Using it
 
