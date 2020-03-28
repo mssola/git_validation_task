@@ -4,7 +4,48 @@
 
 ## Using it
 
-TODO
+Simply include it in your Rakefile like so:
+
+```ruby
+require "git_validation/task"
+
+GitValidation::Task.new(:"git-validation")
+```
+
+You can pass two options:
+
+1. `from`: the inital SHA for the `-range` flag. If this is not used, then the
+   `-range` is not used (except for what is described in the `CI` section of
+   this document).
+2. `run`: the values to be passed to the `run` flag. If this is not used, then
+   the `-run` flag is not used.
+
+Thus, a more complete example would be something like:
+
+```ruby
+require "git_validation/task"
+
+GitValidation::Task.new(:"git-validation") do |t|
+  t.from = "74a6c20fc4d3"
+end
+```
+
+Or:
+
+```ruby
+require "git_validation/task"
+
+GitValidation::Task.new(:"git-validation") do |t|
+  t.from = "74a6c20fc4d3"
+  t.run  = "DCO,message_regexp"
+end
+```
+
+## CI
+
+If the `TRAVIS_COMMIT_RANGE` environment variable is set, then this value will
+be used for the `-range` flag. Thus, any value from the `from` option will be
+ignored in this context.
 
 ## Contributing
 
