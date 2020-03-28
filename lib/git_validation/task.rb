@@ -28,10 +28,10 @@ module GitValidation
 
     attr_accessor :from
     attr_accessor :run
+    attr_accessor :quiet
 
     def initialize(name = :"git-validation", *args, &block)
-      @from = nil
-      @run  = nil
+      set_ivars
 
       desc "Run git-validation" unless ::Rake.application.last_description
 
@@ -41,11 +41,23 @@ module GitValidation
         yield(*[self, task_args].slice(0, block.arity)) if block_given?
 
         abort("Bad type for 'from' option") unless @from.is_a?(String)
-        sh("git-validation", *range_flag, *run_flag)
+        execute!
       end
     end
 
     protected
+
+    # Initialize the ivars that are relevant to us.
+    def set_ivars
+      @from  = nil
+      @run   = nil
+      @quiet = false
+    end
+
+    # Execute the actual shell command with all the needed flags.
+    def execute!
+      sh("git-validation", *range_flag, *run_flag, *quiet_flag)
+    end
 
     # Returns an array containing the arguments to be passed to the
     # git-validation command for the '-range' flag (where '-range') is already
@@ -74,6 +86,13 @@ module GitValidation
       end
 
       ["-run", @run]
+    end
+
+    # Returns an array containing the `-q` flag if it was specified.
+    def quiet_flag
+      return ["-q"] if @quiet
+
+      []
     end
 
     # Returns true if the given string is not blank (nil nor empty).

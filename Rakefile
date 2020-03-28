@@ -32,7 +32,8 @@ RuboCop::RakeTask.new(:rubocop) do |t|
 end
 
 GitValidation::Task.new(:"git-validation") do |t|
-  t.from = "b821d057103680dfad784176e8175a973ecd769e"
+  t.from  = "b821d057103680dfad784176e8175a973ecd769e"
+  t.quiet = ENV["CI"] != "true"
 end
 
 task default: :all

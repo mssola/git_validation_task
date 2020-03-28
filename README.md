@@ -20,6 +20,7 @@ You can pass two options:
    this document).
 2. `run`: the values to be passed to the `run` flag. If this is not used, then
    the `-run` flag is not used.
+3. `quiet`: whether or not the `-q` flag should be used.
 
 Thus, a more complete example would be something like:
 
@@ -31,14 +32,15 @@ GitValidation::Task.new(:"git-validation") do |t|
 end
 ```
 
-Or:
+And more complete:
 
 ```ruby
 require "git_validation/task"
 
 GitValidation::Task.new(:"git-validation") do |t|
-  t.from = "74a6c20fc4d3"
-  t.run  = "DCO,message_regexp"
+  t.from  = "74a6c20fc4d3"
+  t.run   = "DCO,message_regexp"
+  t.quiet = ENV["CI"] != "true"
 end
 ```
 

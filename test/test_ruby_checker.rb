@@ -114,4 +114,29 @@ class TestGitValidationTask < Minitest::Test
     refute task.send(:present?, "")
     assert task.send(:present?, "a")
   end
+
+  def test_quiet_not_available
+    task = ::GitValidation::Task.new
+    res = task.send(:quiet_flag)
+
+    assert_equal res, []
+  end
+
+  def test_quiet_set_to_false
+    task = ::GitValidation::Task.new
+
+    task.quiet = false
+    res = task.send(:quiet_flag)
+
+    assert_equal res, []
+  end
+
+  def test_quiet_set_to_true
+    task = ::GitValidation::Task.new
+
+    task.quiet = true
+    res = task.send(:quiet_flag)
+
+    assert_equal res, ["-q"]
+  end
 end
