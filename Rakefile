@@ -19,6 +19,7 @@
 
 require "rake/testtask"
 require "rubocop/rake_task"
+require_relative "lib/git_validation/task"
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
@@ -30,13 +31,9 @@ RuboCop::RakeTask.new(:rubocop) do |t|
   t.options = ["--display-cop-names"]
 end
 
-# TODO: bootstrap
-
-#GitValidation::RakeTask.new(:"git-validation") do |t|
-#t.from = ["74a6c20fc4d3"]
-#end
+GitValidation::Task.new(:"git-validation") do |t|
+  t.from = "b821d057103680dfad784176e8175a973ecd769e"
+end
 
 task default: :all
-# TODO
-#task all: %i[test rubocop git-validation]
-task all: %i[test rubocop]
+task all: %i[test rubocop git-validation]
