@@ -17,7 +17,6 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with git_validation_task.  If not, see <http://www.gnu.org/licenses/>.
 
-require "mkmf"
 require "rake"
 require "rake/file_utils"
 require "rake/tasklib"
@@ -82,9 +81,14 @@ module GitValidation
       !str.nil? && str != ""
     end
 
-    # Returns true if the `git-validation` command is available.
+    # Returns true if `git-validation` could be found in the filesystem and it's
+    # executable.
     def git_validation?
-      !find_executable("git-validation").nil?
+      ENV["PATH"].split(File::PATH_SEPARATOR).each do |path|
+        bin = File.join(path, "git-validation")
+        return true if File.executable?(bin) && !File.directory?(bin)
+      end
+      nil
     end
   end
 end
