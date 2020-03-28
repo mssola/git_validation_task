@@ -8,7 +8,7 @@ require "git_validation/version"
 Gem::Specification.new do |spec|
   spec.name          = "git_validation_task"
   spec.version       = GitValidation::VERSION
-  spec.authors       = ["mssola"]
+  spec.authors       = ["Miquel Sabaté Solà"]
   spec.email         = ["mikisabate@gmail.com"]
   spec.description   = "A rake task for the git-validation tool"
   spec.summary       = "Rake integration for the git-validation tool."
