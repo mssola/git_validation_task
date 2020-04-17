@@ -1,4 +1,10 @@
-# git_validation_task [![Build Status](https://travis-ci.org/mssola/git_validation_task.svg?branch=master)](https://travis-ci.org/mssola/git_validation_task) [![Gem Version](https://badge.fury.io/rb/git_validation_task.svg)](https://badge.fury.io/rb/git_validation_task)
+<p align="center">
+  <a href="https://travis-ci.org/mssola/git_validation_task" title="Travis CI status for the master branch"><img src="https://travis-ci.org/mssola/git_validation_task.svg?branch=master" alt="Build Status for master branch" /></a>
+  <a href="https://badge.fury.io/rb/git_validation_task" title="Gem version"><img src="https://badge.fury.io/rb/git_validation_task.svg" alt="Gem version" /></a>
+  <a href="http://www.gnu.org/licenses/gpl-3.0.txt" rel="nofollow"><img alt="License GPL 3" src="https://img.shields.io/badge/license-GPL_3-blue.svg" style="max-width:100%;"></a>
+</p>
+
+---
 
 `git_validation_task` provides rake integration for the
 [git-validation](https://github.com/vbatts/git-validation) tool.
