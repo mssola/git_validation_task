@@ -71,7 +71,7 @@ This project is based on work I did for the
 gem so it can be also used for other projects that might be interested in this.
 
 ```
-Copyright (C) 2020 Miquel Sabaté Solà <mikisabate@gmail.com>
+Copyright (C) 2020-2021 Miquel Sabaté Solà <mikisabate@gmail.com>
 
 git_validation_task is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Copyright (C) 2020 Miquel Sabaté Solà <mikisabate@gmail.com>
+# Copyright (C) 2020-2021 Miquel Sabaté Solà <mikisabate@gmail.com>
 #
 # This file is part of git_validation_task
 #
